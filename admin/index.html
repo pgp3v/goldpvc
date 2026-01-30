@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold PVC - Tableau de Bord | لوحة التحكم</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="login-logo">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h1>Gold PVC</h1>
+                <p>Système de Gestion | نظام الإدارة</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Nom d'utilisateur / اسم المستخدم</label>
+                    <input type="text" id="username" required placeholder="Entrez votre nom d'utilisateur">
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Mot de passe / كلمة المرور</label>
+                    <input type="password" id="password" required placeholder="Entrez votre mot de passe">
+                </div>
+                <button type="submit" class="btn-login">
+                    <i class="fas fa-sign-in-alt"></i> Connexion / دخول
+                </button>
+                <p id="loginError" class="login-error"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" class="dashboard hidden">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-crown"></i>
+                    <span>Gold PVC</span>
+                </div>
+                <button class="sidebar-toggle" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-details">
+                    <span class="user-name" id="currentUserName">Admin</span>
+                    <span class="user-role" id="currentUserRole">Administrateur</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-th-large"></i>
+                    <span>Tableau de Bord / لوحة التحكم</span>
+                </a>
+                <a href="#" class="nav-item" data-section="calculator">
+                    <i class="fas fa-calculator"></i>
+                    <span>Calculateur / حاسبة</span>
+                </a>
+                <a href="#" class="nav-item" data-section="clients">
+                    <i class="fas fa-users"></i>
+                    <span>Clients / العملاء</span>
+                </a>
+                <a href="#" class="nav-item" data-section="quotes">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Devis & Factures / الفواتير</span>
+                </a>
+                <a href="#" class="nav-item" data-section="installations">
+                    <i class="fas fa-tools"></i>
+                    <span>Installations / التركيبات</span>
+                </a>
+                <a href="#" class="nav-item admin-only" data-section="activity">
+                    <i class="fas fa-history"></i>
+                    <span>Activité / النشاط</span>
+                </a>
+                <a href="#" class="nav-item admin-only" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Paramètres / الإعدادات</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button class="btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Déconnexion / خروج</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2 id="pageTitle">Tableau de Bord / لوحة التحكم</h2>
+                </div>
+                <div class="topbar-right">
+                    <div class="store-badge" id="storeBadge">
+                        <i class="fas fa-store"></i>
+                        <span id="currentStoreName">Admin</span>
+                    </div>
+                    <div class="datetime">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboardSection" class="content-section active">
+                <!-- Welcome Banner -->
+                <div class="welcome-banner">
+                    <div class="welcome-content">
+                        <h2>مرحباً بك! <span id="welcomeUserName">Admin</span> 👋</h2>
+                        <p>Bienvenue dans votre espace de gestion Gold PVC</p>
+                    </div>
+                    <div class="welcome-illustration">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                </div>
+
+                <!-- Stats Cards - Professional Design -->
+                <div class="stats-grid">
+                    <div class="stat-card stat-primary">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="totalInvoices">0</div>
+                            <div class="stat-label">Total Factures / إجمالي الفواتير</div>
+                            <div class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i>
+                                <span id="invoicesTrend">+12%</span>
+                                <small>vs mois dernier</small>
+                            </div>
+                        </div>
+                        <div class="stat-chart">
+                            <svg viewBox="0 0 100 40" class="sparkline">
+                                <polyline fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" 
+                                    points="0,35 15,28 30,32 45,20 60,25 75,15 90,18 100,10"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-success">
+                        <div class="stat-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value"><span id="totalRevenue">0</span> <small>MAD</small></div>
+                            <div class="stat-label">Revenus / الإيرادات</div>
+                            <div class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i>
+                                <span id="revenueTrend">+8%</span>
+                                <small>vs mois dernier</small>
+                            </div>
+                        </div>
+                        <div class="stat-chart">
+                            <svg viewBox="0 0 100 40" class="sparkline">
+                                <polyline fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" 
+                                    points="0,30 20,25 40,28 60,15 80,20 100,8"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-warning">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value"><span id="pendingPayments">0</span> <small>MAD</small></div>
+                            <div class="stat-label">En attente / المعلقة</div>
+                            <div class="stat-trend down">
+                                <i class="fas fa-arrow-down"></i>
+                                <span id="pendingTrend">-5%</span>
+                                <small>vs mois dernier</small>
+                            </div>
+                        </div>
+                        <div class="stat-chart">
+                            <svg viewBox="0 0 100 40" class="sparkline">
+                                <polyline fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" 
+                                    points="0,15 25,20 50,18 75,25 100,30"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-info">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="totalClients">0</div>
+                            <div class="stat-label">Clients / العملاء</div>
+                            <div class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i>
+                                <span id="clientsTrend">+15%</span>
+                                <small>vs mois dernier</small>
+                            </div>
+                        </div>
+                        <div class="stat-chart">
+                            <svg viewBox="0 0 100 40" class="sparkline">
+                                <polyline fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" 
+                                    points="0,35 25,30 50,25 75,20 100,12"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-purple">
+                        <div class="stat-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="totalInstalled">0</div>
+                            <div class="stat-label">Installés / تم التركيب</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="installedProgress" style="width: 0%"></div>
+                                </div>
+                                <span id="installedPercent">0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card stat-orange">
+                        <div class="stat-icon">
+                            <i class="fas fa-hourglass-half"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value" id="totalPendingInstall">0</div>
+                            <div class="stat-label">En attente d'installation / بانتظار التركيب</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar warning">
+                                    <div class="progress-fill" id="pendingInstallProgress" style="width: 0%"></div>
+                                </div>
+                                <span id="pendingInstallPercent">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-grid">
+                    <!-- Revenue Chart -->
+                    <div class="chart-card large">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-chart-area"></i>
+                                <h3>Revenus Mensuels / الإيرادات الشهرية</h3>
+                            </div>
+                            <div class="chart-actions">
+                                <select id="revenueYear" class="chart-select">
+                                    <option value="2026">2026</option>
+                                    <option value="2025">2025</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <div class="bar-chart" id="revenueChart">
+                                <div class="chart-bars">
+                                    <div class="bar-group" data-month="Jan">
+                                        <div class="bar" style="height: 45%"><span>45K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Fév">
+                                        <div class="bar" style="height: 60%"><span>60K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Mar">
+                                        <div class="bar" style="height: 75%"><span>75K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Avr">
+                                        <div class="bar" style="height: 55%"><span>55K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Mai">
+                                        <div class="bar" style="height: 85%"><span>85K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Juin">
+                                        <div class="bar" style="height: 70%"><span>70K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Juil">
+                                        <div class="bar" style="height: 90%"><span>90K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Août">
+                                        <div class="bar" style="height: 65%"><span>65K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Sep">
+                                        <div class="bar" style="height: 80%"><span>80K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Oct">
+                                        <div class="bar" style="height: 95%"><span>95K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Nov">
+                                        <div class="bar" style="height: 88%"><span>88K</span></div>
+                                    </div>
+                                    <div class="bar-group" data-month="Déc">
+                                        <div class="bar" style="height: 100%"><span>100K</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Status Donut -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-chart-pie"></i>
+                                <h3>État des Paiements / حالة المدفوعات</h3>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <div class="donut-chart">
+                                <svg viewBox="0 0 100 100" class="donut">
+                                    <circle class="donut-ring" cx="50" cy="50" r="40"/>
+                                    <circle class="donut-segment paid" cx="50" cy="50" r="40" 
+                                        stroke-dasharray="0 251.2" stroke-dashoffset="0" id="paidSegment"/>
+                                    <circle class="donut-segment partial" cx="50" cy="50" r="40" 
+                                        stroke-dasharray="0 251.2" id="partialSegment"/>
+                                    <circle class="donut-segment unpaid" cx="50" cy="50" r="40" 
+                                        stroke-dasharray="0 251.2" id="unpaidSegment"/>
+                                    <text x="50" y="50" class="donut-text" id="donutTotal">0</text>
+                                    <text x="50" y="60" class="donut-subtext">Factures</text>
+                                </svg>
+                                <div class="donut-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color paid"></span>
+                                        <span>Payé / مدفوع</span>
+                                        <strong id="paidCount">0</strong>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color partial"></span>
+                                        <span>Partiel / جزئي</span>
+                                        <strong id="partialCount">0</strong>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color unpaid"></span>
+                                        <span>Impayé / غير مدفوع</span>
+                                        <strong id="unpaidCount">0</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Installation Status -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-tasks"></i>
+                                <h3>État des Installations / حالة التركيب</h3>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <div class="installation-stats">
+                                <div class="install-stat">
+                                    <div class="install-icon installed">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="install-info">
+                                        <span class="install-count" id="installCompleteCount">0</span>
+                                        <span class="install-label">Installés / تم التركيب</span>
+                                    </div>
+                                    <div class="install-percent" id="installCompletePercent">0%</div>
+                                </div>
+                                <div class="install-stat">
+                                    <div class="install-icon pending">
+                                        <i class="fas fa-clock"></i>
+                                    </div>
+                                    <div class="install-info">
+                                        <span class="install-count" id="installPendingCount">0</span>
+                                        <span class="install-label">En attente / قيد الانتظار</span>
+                                    </div>
+                                    <div class="install-percent" id="installPendingPercent">0%</div>
+                                </div>
+                                <div class="install-stat">
+                                    <div class="install-icon cancelled">
+                                        <i class="fas fa-times-circle"></i>
+                                    </div>
+                                    <div class="install-info">
+                                        <span class="install-count" id="installCancelledCount">0</span>
+                                        <span class="install-label">Annulés / ملغية</span>
+                                    </div>
+                                    <div class="install-percent" id="installCancelledPercent">0%</div>
+                                </div>
+                            </div>
+                            <div class="install-progress-bar">
+                                <div class="progress-segment installed" id="progressInstalled" style="width: 0%"></div>
+                                <div class="progress-segment pending" id="progressPending" style="width: 0%"></div>
+                                <div class="progress-segment cancelled" id="progressCancelled" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Top Products -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <i class="fas fa-trophy"></i>
+                                <h3>Top Produits / أفضل المنتجات</h3>
+                            </div>
+                        </div>
+                        <div class="chart-body">
+                            <div class="top-products" id="topProductsList">
+                                <div class="product-item">
+                                    <div class="product-rank gold">1</div>
+                                    <div class="product-info">
+                                        <span class="product-name">Fenêtre coulissante</span>
+                                        <div class="product-bar">
+                                            <div class="product-fill" style="width: 100%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="product-count">0</span>
+                                </div>
+                                <div class="product-item">
+                                    <div class="product-rank silver">2</div>
+                                    <div class="product-info">
+                                        <span class="product-name">Porte 2 battants</span>
+                                        <div class="product-bar">
+                                            <div class="product-fill" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="product-count">0</span>
+                                </div>
+                                <div class="product-item">
+                                    <div class="product-rank bronze">3</div>
+                                    <div class="product-info">
+                                        <span class="product-name">Volet roulant</span>
+                                        <div class="product-bar">
+                                            <div class="product-fill" style="width: 50%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="product-count">0</span>
+                                </div>
+                                <div class="product-item">
+                                    <div class="product-rank">4</div>
+                                    <div class="product-info">
+                                        <span class="product-name">Châssis fixe</span>
+                                        <div class="product-bar">
+                                            <div class="product-fill" style="width: 35%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="product-count">0</span>
+                                </div>
+                                <div class="product-item">
+                                    <div class="product-rank">5</div>
+                                    <div class="product-info">
+                                        <span class="product-name">Porte sanitaire</span>
+                                        <div class="product-bar">
+                                            <div class="product-fill" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="product-count">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Store Performance Cards (Admin Only) -->
+                <div class="stores-section admin-only">
+                    <h3 class="section-title">
+                        <i class="fas fa-store"></i>
+                        Performance des Magasins / أداء المحلات
+                    </h3>
+                    <div class="stores-grid" id="storesPerformance">
+                        <!-- Store cards will be generated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="recent-section">
+                    <div class="recent-card">
+                        <div class="recent-header">
+                            <h3><i class="fas fa-clock"></i> Factures Récentes / الفواتير الأخيرة</h3>
+                            <a href="#" onclick="showSection('quotes')">Voir tout</a>
+                        </div>
+                        <div class="recent-list" id="recentInvoicesList">
+                            <div class="empty-state">
+                                <i class="fas fa-inbox"></i>
+                                <p>Aucune facture / لا توجد فواتير</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent-card">
+                        <div class="recent-header">
+                            <h3><i class="fas fa-user-plus"></i> Nouveaux Clients / عملاء جدد</h3>
+                            <a href="#" onclick="showSection('clients')">Voir tout</a>
+                        </div>
+                        <div class="recent-list" id="recentClientsList">
+                            <div class="empty-state">
+                                <i class="fas fa-users"></i>
+                                <p>Aucun client / لا يوجد عملاء</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calculator Section -->
+            <section id="calculatorSection" class="content-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-calculator"></i> Calculateur de Prix / حاسبة الأسعار</h3>
+                </div>
+                
+                <div class="calculator-container">
+                    <div class="calc-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Catégorie / الفئة</label>
+                                <select id="categorySelect" onchange="updateTypes()">
+                                    <option value="">-- Sélectionner / اختر --</option>
+                                    <option value="windows">Fenêtres / النوافذ</option>
+                                    <option value="doors">Portes / الأبواب</option>
+                                    <option value="shutters">Volets Roulants / الستائر</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Type / النوع</label>
+                                <select id="typeSelect" onchange="updateSeries()">
+                                    <option value="">-- Sélectionner / اختر --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Série / السلسلة</label>
+                                <select id="seriesSelect">
+                                    <option value="">-- Sélectionner / اختر --</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Type de Vitrage / نوع الزجاج</label>
+                                <select id="glassSelect">
+                                    <option value="">-- Sélectionner / اختر --</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Largeur (cm) / العرض</label>
+                                <input type="number" id="widthInput" placeholder="Ex: 120" min="1">
+                            </div>
+                            <div class="form-group">
+                                <label>Hauteur (cm) / الارتفاع</label>
+                                <input type="number" id="heightInput" placeholder="Ex: 150" min="1">
+                            </div>
+                            <div class="form-group">
+                                <label>Quantité / الكمية</label>
+                                <input type="number" id="quantityInput" value="1" min="1">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn btn-primary" onclick="calculatePrice()">
+                                <i class="fas fa-calculator"></i> Calculer / حساب
+                            </button>
+                            <button class="btn btn-success" onclick="addToQuote()">
+                                <i class="fas fa-plus"></i> Ajouter au Devis / أضف للفاتورة
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="calc-result">
+                        <h4>Résultat / النتيجة</h4>
+                        <div class="result-box" id="calcResult">
+                            <p class="result-placeholder">Sélectionnez un produit et entrez les dimensions</p>
+                            <p class="result-placeholder">اختر منتج وأدخل الأبعاد</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quote Items -->
+                <div class="quote-section">
+                    <div class="quote-header">
+                        <h4><i class="fas fa-shopping-cart"></i> Articles du Devis / عناصر الفاتورة</h4>
+                        <button class="btn btn-danger btn-sm" onclick="clearQuoteItems()">
+                            <i class="fas fa-trash"></i> Vider / مسح
+                        </button>
+                    </div>
+                    <div class="quote-items" id="quoteItems">
+                        <div class="empty-message">
+                            <i class="fas fa-cart-plus"></i>
+                            <p>Aucun article ajouté / لم تتم إضافة أي عنصر</p>
+                        </div>
+                    </div>
+                    <div class="quote-total">
+                        <span>Total / المجموع:</span>
+                        <strong id="quoteTotal">0.00 MAD</strong>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clients Section -->
+            <section id="clientsSection" class="content-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-users"></i> Gestion des Clients / إدارة العملاء</h3>
+                    <button class="btn btn-primary" onclick="showAddClientModal()">
+                        <i class="fas fa-user-plus"></i> Nouveau Client / عميل جديد
+                    </button>
+                </div>
+                
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="clientSearch" placeholder="Rechercher... / بحث..." onkeyup="filterClients()">
+                    </div>
+                    <select id="clientStoreFilter" class="filter-select admin-only" onchange="filterClients()">
+                        <option value="all">Tous les magasins / كل المحلات</option>
+                        <option value="store1">محل 1</option>
+                        <option value="store2">محل 2</option>
+                        <option value="store3">محل 3</option>
+                    </select>
+                </div>
+
+                <div class="clients-table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Nom / الاسم</th>
+                                <th>Téléphone / الهاتف</th>
+                                <th>Ville / المدينة</th>
+                                <th>Total Achats / إجمالي المشتريات</th>
+                                <th>Solde / الرصيد</th>
+                                <th class="admin-only">Magasin / المحل</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clientsTableBody">
+                            <tr class="empty-row">
+                                <td colspan="7">
+                                    <div class="empty-message">
+                                        <i class="fas fa-users"></i>
+                                        <p>Aucun client trouvé / لم يتم العثور على عملاء</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Quotes Section -->
+            <section id="quotesSection" class="content-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> Devis & Factures / الفواتير</h3>
+                    <button class="btn btn-primary" onclick="showCreateQuoteModal()">
+                        <i class="fas fa-plus"></i> Nouvelle Facture / فاتورة جديدة
+                    </button>
+                </div>
+                
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="quoteSearch" placeholder="Rechercher... / بحث..." onkeyup="filterQuotes()">
+                    </div>
+                    <select id="quoteStatusFilter" class="filter-select" onchange="filterQuotes()">
+                        <option value="all">Tous les états / كل الحالات</option>
+                        <option value="unpaid">Non payé / غير مدفوع</option>
+                        <option value="partial">Partiel / جزئي</option>
+                        <option value="paid">Payé / مدفوع</option>
+                    </select>
+                    <select id="quoteInstallFilter" class="filter-select" onchange="filterQuotes()">
+                        <option value="all">Toutes installations / كل التركيبات</option>
+                        <option value="installed">Installé / تم التركيب</option>
+                        <option value="pending">En attente / قيد الانتظار</option>
+                        <option value="cancelled">Annulé / ملغي</option>
+                    </select>
+                    <select id="quoteStoreFilter" class="filter-select admin-only" onchange="filterQuotes()">
+                        <option value="all">Tous les magasins / كل المحلات</option>
+                        <option value="store1">محل 1</option>
+                        <option value="store2">محل 2</option>
+                        <option value="store3">محل 3</option>
+                    </select>
+                </div>
+
+                <div class="quotes-grid" id="quotesGrid">
+                    <div class="empty-message">
+                        <i class="fas fa-file-invoice"></i>
+                        <p>Aucune facture trouvée / لم يتم العثور على فواتير</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Installations Section -->
+            <section id="installationsSection" class="content-section">
+                <div class="section-header">
+                    <h3><i class="fas fa-tools"></i> Gestion des Installations / إدارة التركيبات</h3>
+                </div>
+                
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="installSearch" placeholder="Rechercher... / بحث..." onkeyup="filterInstallations()">
+                    </div>
+                    <select id="installStatusFilter" class="filter-select" onchange="filterInstallations()">
+                        <option value="all">Tous les états / كل الحالات</option>
+                        <option value="pending">En attente / قيد الانتظار</option>
+                        <option value="installed">Installé / تم التركيب</option>
+                        <option value="cancelled">Annulé / ملغي</option>
+                    </select>
+                    <select id="installStoreFilter" class="filter-select admin-only" onchange="filterInstallations()">
+                        <option value="all">Tous les magasins / كل المحلات</option>
+                        <option value="store1">محل 1</option>
+                        <option value="store2">محل 2</option>
+                        <option value="store3">محل 3</option>
+                    </select>
+                </div>
+
+                <!-- Installation Stats Summary -->
+                <div class="install-summary">
+                    <div class="summary-card pending">
+                        <i class="fas fa-clock"></i>
+                        <div class="summary-info">
+                            <span class="summary-count" id="summaryPending">0</span>
+                            <span class="summary-label">En attente / قيد الانتظار</span>
+                        </div>
+                    </div>
+                    <div class="summary-card installed">
+                        <i class="fas fa-check-circle"></i>
+                        <div class="summary-info">
+                            <span class="summary-count" id="summaryInstalled">0</span>
+                            <span class="summary-label">Installés / تم التركيب</span>
+                        </div>
+                    </div>
+                    <div class="summary-card cancelled">
+                        <i class="fas fa-times-circle"></i>
+                        <div class="summary-info">
+                            <span class="summary-count" id="summaryCancelled">0</span>
+                            <span class="summary-label">Annulés / ملغية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="installations-list" id="installationsList">
+                    <div class="empty-message">
+                        <i class="fas fa-tools"></i>
+                        <p>Aucune installation trouvée / لا توجد تركيبات</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activity Section (Admin Only) -->
+            <section id="activitySection" class="content-section admin-only">
+                <div class="section-header">
+                    <h3><i class="fas fa-history"></i> Journal d'Activité / سجل النشاط</h3>
+                    <button class="btn btn-secondary" onclick="exportActivityLog()">
+                        <i class="fas fa-download"></i> Exporter / تصدير
+                    </button>
+                </div>
+                
+                <div class="filters-bar">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="activitySearch" placeholder="Rechercher... / بحث..." onkeyup="filterActivity()">
+                    </div>
+                    <select id="activityTypeFilter" class="filter-select" onchange="filterActivity()">
+                        <option value="all">Tous les types / كل الأنواع</option>
+                        <option value="login">Connexions / تسجيل دخول</option>
+                        <option value="invoice">Factures / فواتير</option>
+                        <option value="client">Clients / عملاء</option>
+                        <option value="payment">Paiements / مدفوعات</option>
+                        <option value="install">Installations / تركيبات</option>
+                    </select>
+                    <select id="activityStoreFilter" class="filter-select" onchange="filterActivity()">
+                        <option value="all">Tous les magasins / كل المحلات</option>
+                        <option value="admin">Admin</option>
+                        <option value="store1">محل 1</option>
+                        <option value="store2">محل 2</option>
+                        <option value="store3">محل 3</option>
+                    </select>
+                </div>
+
+                <div class="activity-timeline" id="activityTimeline">
+                    <div class="empty-message">
+                        <i class="fas fa-history"></i>
+                        <p>Aucune activité enregistrée / لا يوجد نشاط مسجل</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Settings Section (Admin Only) -->
+            <section id="settingsSection" class="content-section admin-only">
+                <div class="section-header">
+                    <h3><i class="fas fa-cog"></i> Paramètres / الإعدادات</h3>
+                </div>
+                
+                <div class="settings-grid">
+                    <!-- Company Logo -->
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <i class="fas fa-image"></i>
+                            <h4>Logo de l'entreprise / شعار الشركة</h4>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="logo-upload-area" id="logoUploadArea">
+                                <div class="logo-preview" id="logoPreview">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Cliquez ou glissez une image</p>
+                                    <p>اضغط أو اسحب صورة</p>
+                                </div>
+                                <input type="file" id="logoInput" accept="image/*" onchange="handleLogoUpload(event)" hidden>
+                            </div>
+                            <div class="logo-actions">
+                                <button class="btn btn-primary btn-sm" onclick="document.getElementById('logoInput').click()">
+                                    <i class="fas fa-upload"></i> Télécharger / رفع
+                                </button>
+                                <button class="btn btn-danger btn-sm" onclick="removeLogo()">
+                                    <i class="fas fa-trash"></i> Supprimer / حذف
+                                </button>
+                            </div>
+                            <p class="help-text">Taille max: 500KB | Format: PNG, JPG</p>
+                        </div>
+                    </div>
+
+                    <!-- Company Info -->
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <i class="fas fa-building"></i>
+                            <h4>Informations de l'entreprise / معلومات الشركة</h4>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="form-group">
+                                <label>Nom / الاسم</label>
+                                <input type="text" id="companyName" value="Gold PVC">
+                            </div>
+                            <div class="form-group">
+                                <label>Adresse / العنوان</label>
+                                <input type="text" id="companyAddress" placeholder="Adresse de l'entreprise">
+                            </div>
+                            <div class="form-group">
+                                <label>Téléphone / الهاتف</label>
+                                <input type="text" id="companyPhone" placeholder="+212 XXX XXX XXX">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" id="companyEmail" placeholder="contact@goldpvc.com">
+                            </div>
+                            <div class="form-group">
+                                <label>ICE</label>
+                                <input type="text" id="companyICE" placeholder="ICE de l'entreprise">
+                            </div>
+                            <button class="btn btn-primary" id="saveCompanyInfo" onclick="saveCompanyInfo()">
+                                <i class="fas fa-save"></i> Enregistrer / حفظ
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Store Names -->
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <i class="fas fa-store"></i>
+                            <h4>Noms des Magasins / أسماء المحلات</h4>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="form-group">
+                                <label>Magasin 1 / المحل 1</label>
+                                <input type="text" id="store1Name" value="محل 1">
+                            </div>
+                            <div class="form-group">
+                                <label>Magasin 2 / المحل 2</label>
+                                <input type="text" id="store2Name" value="محل 2">
+                            </div>
+                            <div class="form-group">
+                                <label>Magasin 3 / المحل 3</label>
+                                <input type="text" id="store3Name" value="محل 3">
+                            </div>
+                            <button class="btn btn-primary" id="saveStoreNames" onclick="saveStoreNames()">
+                                <i class="fas fa-save"></i> Enregistrer / حفظ
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Change Passwords -->
+                    <div class="settings-card">
+                        <div class="settings-card-header">
+                            <i class="fas fa-key"></i>
+                            <h4>Mots de Passe / كلمات المرور</h4>
+                        </div>
+                        <div class="settings-card-body">
+                            <div class="form-group">
+                                <label>Admin</label>
+                                <input type="password" id="adminPassword" placeholder="Nouveau mot de passe">
+                            </div>
+                            <div class="form-group">
+                                <label>Magasin 1</label>
+                                <input type="password" id="store1Password" placeholder="Nouveau mot de passe">
+                            </div>
+                            <div class="form-group">
+                                <label>Magasin 2</label>
+                                <input type="password" id="store2Password" placeholder="Nouveau mot de passe">
+                            </div>
+                            <div class="form-group">
+                                <label>Magasin 3</label>
+                                <input type="password" id="store3Password" placeholder="Nouveau mot de passe">
+                            </div>
+                            <button class="btn btn-warning" id="savePasswords" onclick="savePasswords()">
+                                <i class="fas fa-key"></i> Changer / تغيير
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Client Modal -->
+    <div id="clientModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-plus"></i> <span id="clientModalTitle">Nouveau Client / عميل جديد</span></h3>
+                <button class="modal-close" onclick="closeModal('clientModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="clientForm">
+                    <input type="hidden" id="editClientId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nom complet / الاسم الكامل *</label>
+                            <input type="text" id="clientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Téléphone / الهاتف *</label>
+                            <input type="tel" id="clientPhone" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="clientEmail">
+                        </div>
+                        <div class="form-group">
+                            <label>Ville / المدينة</label>
+                            <input type="text" id="clientCity">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Adresse / العنوان</label>
+                        <textarea id="clientAddress" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('clientModal')">Annuler / إلغاء</button>
+                <button class="btn btn-primary" onclick="saveClient()">
+                    <i class="fas fa-save"></i> Enregistrer / حفظ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Quote Modal -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3><i class="fas fa-file-invoice-dollar"></i> <span id="quoteModalTitle">Nouvelle Facture / فاتورة جديدة</span></h3>
+                <button class="modal-close" onclick="closeModal('quoteModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="quoteForm">
+                    <input type="hidden" id="editQuoteId">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Client / العميل *</label>
+                            <select id="quoteClient" required>
+                                <option value="">-- Sélectionner / اختر --</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" id="quoteDate">
+                        </div>
+                    </div>
+                    
+                    <div class="quote-items-section">
+                        <h4>Articles / المنتجات</h4>
+                        <div id="modalQuoteItems" class="modal-quote-items">
+                            <!-- Items will be added here -->
+                        </div>
+                        <div class="quote-items-total">
+                            <span>Total:</span>
+                            <strong id="modalQuoteTotal">0.00 MAD</strong>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Acompte / التسبيق (MAD)</label>
+                            <input type="number" id="quoteAdvance" value="0" min="0" onchange="updatePaymentStatus()">
+                        </div>
+                        <div class="form-group">
+                            <label>Reste à payer / المتبقي</label>
+                            <input type="text" id="quoteRemaining" readonly>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notes</label>
+                        <textarea id="quoteNotes" rows="2" placeholder="Notes supplémentaires..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('quoteModal')">Annuler / إلغاء</button>
+                <button class="btn btn-primary" onclick="saveQuote()">
+                    <i class="fas fa-save"></i> Enregistrer / حفظ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-money-bill-wave"></i> Ajouter Paiement / إضافة دفعة</h3>
+                <button class="modal-close" onclick="closeModal('paymentModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="paymentQuoteId">
+                <div class="payment-info">
+                    <p>Total: <strong id="paymentTotal">0 MAD</strong></p>
+                    <p>Déjà payé: <strong id="paymentPaid">0 MAD</strong></p>
+                    <p>Reste: <strong id="paymentRemaining">0 MAD</strong></p>
+                </div>
+                <div class="form-group">
+                    <label>Montant à payer / المبلغ</label>
+                    <input type="number" id="paymentAmount" min="0" placeholder="Entrez le montant">
+                </div>
+                <div class="form-group">
+                    <label>Note</label>
+                    <input type="text" id="paymentNote" placeholder="Note optionnelle">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('paymentModal')">Annuler / إلغاء</button>
+                <button class="btn btn-success" onclick="addPayment()">
+                    <i class="fas fa-check"></i> Confirmer / تأكيد
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Quote Modal -->
+    <div id="viewQuoteModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3><i class="fas fa-file-invoice"></i> Détails de la Facture / تفاصيل الفاتورة</h3>
+                <button class="modal-close" onclick="closeModal('viewQuoteModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="viewQuoteContent">
+                <!-- Quote details will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('viewQuoteModal')">Fermer / إغلاق</button>
+                <button class="btn btn-primary" onclick="printCurrentQuote()">
+                    <i class="fas fa-print"></i> Imprimer / طباعة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="admin-calculator.js"></script>
+    <script src="admin-main.js"></script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold PVC - Menuiserie Aluminium & PVC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <button class="lang-btn active" data-lang="fr">FR</button>
+        <button class="lang-btn" data-lang="ar">عربي</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <span class="logo-gold">GOLD</span>
+                <span class="logo-pvc">PVC</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" data-fr="Accueil" data-ar="الرئيسية">Accueil</a></li>
+                <li><a href="#about" data-fr="À Propos" data-ar="من نحن">À Propos</a></li>
+                <li><a href="#products" data-fr="Produits" data-ar="المنتجات">Produits</a></li>
+                <li><a href="#services" data-fr="Services" data-ar="الخدمات">Services</a></li>
+                <li><a href="#gallery" data-fr="Galerie" data-ar="معرض الصور">Galerie</a></li>
+                <li><a href="#contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 data-fr="Excellence en Menuiserie Aluminium & PVC" data-ar="التميز في نجارة الألمنيوم و PVC">
+                Excellence en Menuiserie Aluminium & PVC
+            </h1>
+            <p data-fr="Qualité supérieure, design moderne et service professionnel depuis plus de 15 ans" 
+               data-ar="جودة عالية، تصميم حديث وخدمة احترافية منذ أكثر من 15 سنة">
+                Qualité supérieure, design moderne et service professionnel depuis plus de 15 ans
+            </p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary" data-fr="Nos Produits" data-ar="منتجاتنا">Nos Produits</a>
+                <a href="#contact" class="btn btn-outline" data-fr="Devis Gratuit" data-ar="عرض سعر مجاني">Devis Gratuit</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-fr="À Propos de Gold PVC" data-ar="من نحن - Gold PVC">À Propos de Gold PVC</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop" alt="Gold PVC Factory">
+                    <div class="experience-badge">
+                        <span class="years">15+</span>
+                        <span data-fr="Ans d'Expérience" data-ar="سنة خبرة">Ans d'Expérience</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3 data-fr="Votre Partenaire de Confiance" data-ar="شريكك الموثوق">Votre Partenaire de Confiance</h3>
+                    <p data-fr="Gold PVC est une entreprise leader dans le domaine de la menuiserie aluminium et PVC au Maroc. Basée à Laâyoune, nous offrons des solutions complètes pour vos fenêtres, portes, volets roulants et bien plus encore." 
+                       data-ar="Gold PVC هي شركة رائدة في مجال نجارة الألمنيوم و PVC في المغرب. مقرها في العيون، نقدم حلولاً شاملة للنوافذ والأبواب والستائر المعدنية والمزيد.">
+                        Gold PVC est une entreprise leader dans le domaine de la menuiserie aluminium et PVC au Maroc. Basée à Laâyoune, nous offrons des solutions complètes pour vos fenêtres, portes, volets roulants et bien plus encore.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-certificate"></i>
+                            <span data-fr="Qualité Certifiée" data-ar="جودة معتمدة">Qualité Certifiée</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-truck"></i>
+                            <span data-fr="Livraison Rapide" data-ar="توصيل سريع">Livraison Rapide</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tools"></i>
+                            <span data-fr="Installation Professionnelle" data-ar="تركيب احترافي">Installation Professionnelle</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <span data-fr="Support 24/7" data-ar="دعم على مدار الساعة">Support 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stat-item">
+                <i class="fas fa-project-diagram"></i>
+                <span class="stat-number" data-count="500">0</span>
+                <span data-fr="Projets Réalisés" data-ar="مشروع منجز">Projets Réalisés</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span class="stat-number" data-count="350">0</span>
+                <span data-fr="Clients Satisfaits" data-ar="عميل راضٍ">Clients Satisfaits</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-award"></i>
+                <span class="stat-number" data-count="15">0</span>
+                <span data-fr="Années d'Expérience" data-ar="سنة خبرة">Années d'Expérience</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-cogs"></i>
+                <span class="stat-number" data-count="30">0</span>
+                <span data-fr="Types de Produits" data-ar="نوع من المنتجات">Types de Produits</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-fr="Nos Produits" data-ar="منتجاتنا">Nos Produits</h2>
+                <div class="underline"></div>
+                <p data-fr="Découvrez notre gamme complète de menuiserie aluminium et PVC" 
+                   data-ar="اكتشف مجموعتنا الكاملة من نجارة الألمنيوم و PVC">
+                    Découvrez notre gamme complète de menuiserie aluminium et PVC
+                </p>
+            </div>
+            
+            <!-- Product Categories -->
+            <div class="product-filter">
+                <button class="filter-btn active" data-filter="all" data-fr="Tous" data-ar="الكل">Tous</button>
+                <button class="filter-btn" data-filter="doors" data-fr="Portes" data-ar="الأبواب">Portes</button>
+                <button class="filter-btn" data-filter="windows" data-fr="Fenêtres" data-ar="النوافذ">Fenêtres</button>
+                <button class="filter-btn" data-filter="volets" data-fr="Volets" data-ar="الستائر">Volets</button>
+                <button class="filter-btn" data-filter="sliding" data-fr="Coulissantes" data-ar="منزلقة">Coulissantes</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1: Porte 1 Battant -->
+                <div class="product-card" data-category="doors">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop" alt="Porte 1 Battant">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Porte 1 Battant" data-ar="باب فتحة واحدة">Porte 1 Battant</h3>
+                        <p data-fr="Porte en aluminium, design moderne" data-ar="باب ألمنيوم بتصميم عصري">Porte en aluminium, design moderne</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 2: Porte Double Battant -->
+                <div class="product-card" data-category="doors">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=300&fit=crop" alt="Porte Double Battant">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Porte Double Battant" data-ar="باب فتحتين">Porte Double Battant</h3>
+                        <p data-fr="Double porte élégante MASSAI/COMFORT" data-ar="باب مزدوج أنيق ماساي/كومفورت">Double porte élégante MASSAI/COMFORT</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 3: Fenêtre Coulissante -->
+                <div class="product-card" data-category="sliding windows">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop" alt="Fenêtre Coulissante">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Fenêtre Coulissante" data-ar="نافذة منزلقة">Fenêtre Coulissante</h3>
+                        <p data-fr="Fenêtre coulissante 2 vantaux EMREUD" data-ar="نافذة منزلقة بفتحتين إمرود">Fenêtre coulissante 2 vantaux EMREUD</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 4: Volet Roulant Alu -->
+                <div class="product-card" data-category="volets">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=300&fit=crop" alt="Volet Roulant">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Volet Roulant Aluminium" data-ar="ستارة معدنية ألمنيوم">Volet Roulant Aluminium</h3>
+                        <p data-fr="Volet roulant motorisé ou manuel" data-ar="ستارة معدنية كهربائية أو يدوية">Volet roulant motorisé ou manuel</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 5: Volet Roulant PVC -->
+                <div class="product-card" data-category="volets">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=300&fit=crop" alt="Volet Roulant PVC">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Volet Roulant PVC" data-ar="ستارة معدنية PVC">Volet Roulant PVC</h3>
+                        <p data-fr="Volet roulant PVC économique" data-ar="ستارة PVC اقتصادية">Volet roulant PVC économique</p>
+                        <span class="product-type">PVC</span>
+                    </div>
+                </div>
+
+                <!-- Product 6: Oscillo-Battant -->
+                <div class="product-card" data-category="windows">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=400&h=300&fit=crop" alt="Oscillo-Battant">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Oscillo-Battant" data-ar="نافذة متأرجحة">Oscillo-Battant</h3>
+                        <p data-fr="Fenêtre oscillo-battante 1 ou 2 vantaux" data-ar="نافذة متأرجحة بفتحة أو فتحتين">Fenêtre oscillo-battante 1 ou 2 vantaux</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 7: Châssis Fixe -->
+                <div class="product-card" data-category="windows">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=400&h=300&fit=crop" alt="Châssis Fixe">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Châssis Fixe" data-ar="إطار ثابت">Châssis Fixe</h3>
+                        <p data-fr="Vitrine fixe pour plus de lumière" data-ar="واجهة ثابتة لمزيد من الإضاءة">Vitrine fixe pour plus de lumière</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 8: Porte Coulissante -->
+                <div class="product-card" data-category="doors sliding">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&h=300&fit=crop" alt="Porte Coulissante">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Porte Coulissante" data-ar="باب منزلق">Porte Coulissante</h3>
+                        <p data-fr="Porte coulissante grande dimension" data-ar="باب منزلق كبير الحجم">Porte coulissante grande dimension</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 9: Fenêtre Soufflet -->
+                <div class="product-card" data-category="windows">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=400&h=300&fit=crop" alt="Fenêtre Soufflet">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Fenêtre Soufflet" data-ar="نافذة منفاخية">Fenêtre Soufflet</h3>
+                        <p data-fr="Fenêtre soufflet COMFORT/QUARTZ" data-ar="نافذة منفاخية كومفورت/كوارتز">Fenêtre soufflet COMFORT/QUARTZ</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 10: Porte Décorative -->
+                <div class="product-card" data-category="doors">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400&h=300&fit=crop" alt="Porte Décorative">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Porte Décorative" data-ar="باب مزخرف">Porte Décorative</h3>
+                        <p data-fr="Porte avec motifs décoratifs" data-ar="باب بزخارف ونقوش">Porte avec motifs décoratifs</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 11: Porte Sanitaire -->
+                <div class="product-card" data-category="doors">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=300&fit=crop" alt="Porte Sanitaire">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Porte Sanitaire" data-ar="باب حمام">Porte Sanitaire</h3>
+                        <p data-fr="Porte pour salle de bain" data-ar="باب للحمام">Porte pour salle de bain</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+
+                <!-- Product 12: Rideau Extrudé -->
+                <div class="product-card" data-category="volets">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=400&h=300&fit=crop" alt="Rideau Extrudé">
+                        <div class="product-overlay">
+                            <a href="#" class="btn-view"><i class="fas fa-eye"></i></a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Rideau Extrudé" data-ar="ستارة مبثوقة">Rideau Extrudé</h3>
+                        <p data-fr="Rideau métallique haute résistance" data-ar="ستارة معدنية عالية المقاومة">Rideau métallique haute résistance</p>
+                        <span class="product-type">Aluminium</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-fr="Nos Services" data-ar="خدماتنا">Nos Services</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-pencil-ruler"></i>
+                    </div>
+                    <h3 data-fr="Conception Sur Mesure" data-ar="تصميم حسب الطلب">Conception Sur Mesure</h3>
+                    <p data-fr="Designs personnalisés selon vos besoins et spécifications exactes" 
+                       data-ar="تصاميم مخصصة حسب احتياجاتك ومواصفاتك الدقيقة">
+                        Designs personnalisés selon vos besoins et spécifications exactes
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3 data-fr="Fabrication" data-ar="التصنيع">Fabrication</h3>
+                    <p data-fr="Production avec des matériaux de haute qualité importés d'Europe" 
+                       data-ar="إنتاج بمواد عالية الجودة مستوردة من أوروبا">
+                        Production avec des matériaux de haute qualité importés d'Europe
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 data-fr="Installation" data-ar="التركيب">Installation</h3>
+                    <p data-fr="Équipe professionnelle pour une installation parfaite et rapide" 
+                       data-ar="فريق احترافي للتركيب المثالي والسريع">
+                        Équipe professionnelle pour une installation parfaite et rapide
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3 data-fr="Maintenance" data-ar="الصيانة">Maintenance</h3>
+                    <p data-fr="Service après-vente et entretien régulier de vos installations" 
+                       data-ar="خدمة ما بعد البيع والصيانة الدورية لمنشآتك">
+                        Service après-vente et entretien régulier de vos installations
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-fr="Galerie Photos" data-ar="معرض الصور">Galerie Photos</h2>
+                <div class="underline"></div>
+                <p data-fr="Découvrez nos réalisations" data-ar="اكتشف إنجازاتنا">Découvrez nos réalisations</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=400&h=400&fit=crop" alt="Réalisation 1">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600573472591-ee6981cf81f9?w=400&h=400&fit=crop" alt="Réalisation 2">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=400&fit=crop" alt="Réalisation 3">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=400&h=400&fit=crop" alt="Réalisation 4">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop" alt="Réalisation 5">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=400&h=400&fit=crop" alt="Réalisation 6">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-fr="Contactez-Nous" data-ar="اتصل بنا">Contactez-Nous</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 data-fr="Adresse" data-ar="العنوان">Adresse</h4>
+                            <p>LOT AL WAHDA BLOC E N°563<br>LAAYOUNE, MAROC</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-fr="Téléphone" data-ar="الهاتف">Téléphone</h4>
+                            <p>+212 5XX-XXXXXX</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 data-fr="Email" data-ar="البريد الإلكتروني">Email</h4>
+                            <p>contact@goldpvc.ma</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4 data-fr="Horaires" data-ar="أوقات العمل">Horaires</h4>
+                            <p data-fr="Lun - Sam: 8h00 - 18h00" data-ar="الاثنين - السبت: 8:00 - 18:00">Lun - Sam: 8h00 - 18h00</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre Nom" data-fr-placeholder="Votre Nom" data-ar-placeholder="اسمك" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre Email" data-fr-placeholder="Votre Email" data-ar-placeholder="بريدك الإلكتروني" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Téléphone" data-fr-placeholder="Téléphone" data-ar-placeholder="رقم الهاتف">
+                    </div>
+                    <div class="form-group">
+                        <select>
+                            <option value="" data-fr="Sélectionner un produit" data-ar="اختر منتج">Sélectionner un produit</option>
+                            <option value="porte" data-fr="Portes" data-ar="أبواب">Portes</option>
+                            <option value="fenetre" data-fr="Fenêtres" data-ar="نوافذ">Fenêtres</option>
+                            <option value="volet" data-fr="Volets Roulants" data-ar="ستائر معدنية">Volets Roulants</option>
+                            <option value="autre" data-fr="Autre" data-ar="أخرى">Autre</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Votre Message" data-fr-placeholder="Votre Message" data-ar-placeholder="رسالتك" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-fr="Envoyer" data-ar="إرسال">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="logo">
+                        <span class="logo-gold">GOLD</span>
+                        <span class="logo-pvc">PVC</span>
+                    </h3>
+                    <p data-fr="Votre partenaire de confiance pour la menuiserie aluminium et PVC de qualité supérieure." 
+                       data-ar="شريكك الموثوق لنجارة الألمنيوم و PVC عالية الجودة.">
+                        Votre partenaire de confiance pour la menuiserie aluminium et PVC de qualité supérieure.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-fr="Liens Rapides" data-ar="روابط سريعة">Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#home" data-fr="Accueil" data-ar="الرئيسية">Accueil</a></li>
+                        <li><a href="#products" data-fr="Produits" data-ar="المنتجات">Produits</a></li>
+                        <li><a href="#services" data-fr="Services" data-ar="الخدمات">Services</a></li>
+                        <li><a href="#contact" data-fr="Contact" data-ar="اتصل بنا">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-fr="Produits" data-ar="المنتجات">Produits</h4>
+                    <ul>
+                        <li><a href="#" data-fr="Portes Aluminium" data-ar="أبواب ألمنيوم">Portes Aluminium</a></li>
+                        <li><a href="#" data-fr="Fenêtres PVC" data-ar="نوافذ PVC">Fenêtres PVC</a></li>
+                        <li><a href="#" data-fr="Volets Roulants" data-ar="ستائر معدنية">Volets Roulants</a></li>
+                        <li><a href="#" data-fr="Coulissantes" data-ar="منزلقة">Coulissantes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-fr="Contact" data-ar="اتصل بنا">Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> Laâyoune, Maroc</p>
+                    <p><i class="fas fa-phone"></i> +212 5XX-XXXXXX</p>
+                    <p><i class="fas fa-envelope"></i> contact@goldpvc.ma</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Gold PVC. <span data-fr="Tous droits réservés." data-ar="جميع الحقوق محفوظة.">Tous droits réservés.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
